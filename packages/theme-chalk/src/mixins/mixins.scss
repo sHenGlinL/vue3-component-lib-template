@@ -1,0 +1,3 @@
+// 声明公共的sass方法
+@use 'config' as * ; // 导入 
+@forward 'config' ; // 暴漏成全局

@@ -1,0 +1,30 @@
+@use './mixins/mixins.scss' as * ;
+
+@font-face {
+  font-family: "sl-ui-icons"; /* Project id 2984669 */
+  src: url('./fonts/iconfont.woff2') format('woff2'),
+       url('./fonts/iconfont.woff') format('woff'),
+       url('./fonts/iconfont.ttf') format('truetype');
+}
+
+// 以 {namespace}-icon 开头的选择器
+[class^='#{$namespace}-icon'],[class*='#{$namespace}-icon'] {
+  font-family: "sl-ui-icons" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$namespace}-icon-cangku:before {
+  content: "\e614";
+}
+
+.#{$namespace}-icon-fuliao:before {
+  content: "\e615";
+}
+
+.#{$namespace}-icon-amibaguanli:before {
+  content: "\e613";
+}
+

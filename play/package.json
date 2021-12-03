@@ -1,0 +1,14 @@
+{
+  "name": "@vue3-component-lib-template/play",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.10.1",
+    "vite": "^2.6.14"
+  }
+}
