@@ -142,6 +142,17 @@ pnpm i gulp @types/gulp sucrase -w -D
         3. 新建index.ts文件，作为组件库入口文件
 3. 创建任务「buildFullComponent」：打包所有组件
     1. 在build文件夹下创建full-component.ts文件
+    2. gulp适合流程控制和代码转译，没有打包的功能，因此需要安装rollup及相关插件
+    ```
+    pnpm i rollup @rollup/plugin-node-resolve @rollup/plugin-commonjs rollup-plugin-typescript2 rollup-plugin-vue -w -D
+    ```
+4. 创建任务「buildComponent」：打包每个组件
+    1. 在build文件夹下创建components.ts文件
+    2. 需要查找packages/components下，所有文件夹下的index.ts文件逐个打包，这里安装fast-glob库来实现（也可以使用node实现）。
+    ```
+    pnpm i fast-glob -w -D
+    ```
+    3. 打包时需要把组件index.ts文件下，引入的自身库的路径重写，不然会找不到。因为打包的时候排除了自身库的路径，防止二次打包。
 
 <!-- Markdown link & img dfn's -->
 [iconfont]: https://www.iconfont.cn/

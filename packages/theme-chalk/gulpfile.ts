@@ -5,6 +5,7 @@ import autoprefixer from "gulp-autoprefixer"
 import cleanCss from "gulp-clean-css"
 import path from "path"
 import { run } from "../../build/utils"
+import { outDir } from "../../build/utils/paths"
 
 // 删除dist文件
 async function clean() {
@@ -31,7 +32,7 @@ function copyFont() {
 // 拷贝打包文件到根目录的dist
 function copyFullStyle() {
   return src(path.resolve(__dirname, './dist/**'))
-          .pipe(dest(path.resolve(__dirname, '../../dist/theme-chalk')))
+          .pipe(dest(path.resolve(outDir, 'theme-chalk')))
 }
 
 export default series(

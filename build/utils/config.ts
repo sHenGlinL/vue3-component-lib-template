@@ -1,6 +1,7 @@
 import path from "path"
 import { outDir } from "./paths"
 
+// utils的打包配置
 export const buildConfig = {
   esm: {
     module: "ESNext", // tsconfig输出的结果es6模块

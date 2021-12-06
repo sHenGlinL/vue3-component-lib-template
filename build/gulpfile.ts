@@ -15,9 +15,13 @@ import { run, withTaskName } from "./utils"
 */
 export default series(
   withTaskName('clean', () => run('rm -rf ./dist')), // 删除dist
-  withTaskName('buildPackages', () => run('pnpm run --filter ./packages --parallel build')), // 打包packages目录下的所有包（组件包，样式包，工具包），并行执行build命令
-  withTaskName('buildFullComponent', () => run('pnpm run build buildFullComponent')) // 执行build命令时会调用rollup, 我们给rollup传递参数buildFullComponent 那么就会执行导出任务叫 buildFullComponent
+  parallel(
+    withTaskName('buildPackages', () => run('pnpm run --filter ./packages --parallel build')), // 打包packages目录下的所有包（组件包，样式包，工具包），并行执行build命令
+    withTaskName('buildFullComponent', () => run('pnpm run build buildFullComponent')), // 执行build命令时会调用rollup, 我们给rollup传递参数buildFullComponent 那么就会执行导出任务叫 buildFullComponent
+    withTaskName('buildComponent', () => run('pnpm run build buildComponent')), // 打包每一个组件
+  )
 )
 
 // 任务执行器，gulp任务名，根据参数会执行对应任务
 export * from "./full-component"
+export * from "./components"
