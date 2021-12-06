@@ -11,7 +11,7 @@ export const buildConfig = {
       path: path.resolve(outDir, "es"),
     },
     bundle: {
-      path: "vue3-component-lib-template/es",
+      path: "sl-plus/es",
     },
   },
   cjs: {
@@ -22,7 +22,7 @@ export const buildConfig = {
       path: path.resolve(outDir, "lib"),
     },
     bundle: {
-      path: "vue3-component-lib-template/lib",
+      path: "sl-plus/lib",
     },
   },
 };

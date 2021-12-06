@@ -22,13 +22,13 @@ const buildEachComponent = async () => {
     const config = {
       input,
       plugins: [nodeResolve(), typescript(), vue(), commonjs()], // 打包需要的插件
-      external: (id) => /^vue/.test(id) || /^@vue3-component-lib-template/.test(id), // 这里也可以写一个插件，把引入的依赖干掉。这里需要排除vue源码包，自己的库的包 
+      external: (id) => /^vue/.test(id) || /^@sl-plus/.test(id), // 这里也可以写一个插件，把引入的依赖干掉。这里需要排除vue源码包，自己的库的包 
     }
     const bundle = await rollup(config)
     const options = Object.values(buildConfig).map(config => ({
       format: config.format,
       file: path.resolve(config.output.path, `components/${file}/index.js`),
-      // paths: pathRewriter() // @vue3-component-lib-template -> vue3-component-lib-template/es或者/lib
+      // paths: pathRewriter() // @sl-plus -> sl-plus/es或者/lib
     }))
     await Promise.all(options.map(option => bundle.write(option as OutputOptions)))
   })

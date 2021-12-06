@@ -1,7 +1,7 @@
 {
-  "name": "vue3-component-lib-template",
+  "name": "sl-plus",
   "version": "1.0.0",
-  "description": "A components library template for vue3",
+  "description": "A components library template for vue3 refer to element-plus",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
@@ -33,8 +33,8 @@
     "vue": "^3.2.23"
   },
   "dependencies": {
-    "@vue3-component-lib-template/components": "workspace:^1.0.0",
-    "@vue3-component-lib-template/theme-chalk": "workspace:^1.0.0",
-    "@vue3-component-lib-template/utils": "workspace:^1.0.0"
+    "@sl-plus/components": "workspace:^1.0.0",
+    "@sl-plus/theme-chalk": "workspace:^1.0.0",
+    "@sl-plus/utils": "workspace:^1.0.0"
   }
 }

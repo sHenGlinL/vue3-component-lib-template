@@ -6,14 +6,14 @@ importers:
     specifiers:
       '@rollup/plugin-commonjs': ^21.0.1
       '@rollup/plugin-node-resolve': ^13.0.6
+      '@sl-plus/components': workspace:^1.0.0
+      '@sl-plus/theme-chalk': workspace:^1.0.0
+      '@sl-plus/utils': workspace:^1.0.0
       '@types/gulp': ^4.0.9
       '@types/gulp-autoprefixer': ^0.0.33
       '@types/gulp-clean-css': ^4.3.0
       '@types/gulp-sass': ^5.0.0
       '@types/sass': ^1.43.1
-      '@vue3-component-lib-template/components': workspace:^1.0.0
-      '@vue3-component-lib-template/theme-chalk': workspace:^1.0.0
-      '@vue3-component-lib-template/utils': workspace:^1.0.0
       fast-glob: ^3.2.7
       gulp: ^4.0.2
       gulp-autoprefixer: ^8.0.0
@@ -28,9 +28,9 @@ importers:
       typescript: ^4.5.2
       vue: ^3.2.23
     dependencies:
-      '@vue3-component-lib-template/components': link:packages/components
-      '@vue3-component-lib-template/theme-chalk': link:packages/theme-chalk
-      '@vue3-component-lib-template/utils': link:packages/utils
+      '@sl-plus/components': link:packages/components
+      '@sl-plus/theme-chalk': link:packages/theme-chalk
+      '@sl-plus/utils': link:packages/utils
     devDependencies:
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.60.2
       '@rollup/plugin-node-resolve': 13.0.6_rollup@2.60.2

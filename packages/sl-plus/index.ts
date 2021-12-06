@@ -1,4 +1,4 @@
-import { SLIcon } from "@vue3-component-lib-template/components"
+import { SLIcon } from "@sl-plus/components"
 
 import type { App } from "vue"
 
@@ -17,4 +17,4 @@ export default {
   install
 }
 
-export * from "@vue3-component-lib-template/components"
+export * from "@sl-plus/components"
