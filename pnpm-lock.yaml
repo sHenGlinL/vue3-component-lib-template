@@ -14,6 +14,7 @@ importers:
       '@types/gulp-clean-css': ^4.3.0
       '@types/gulp-sass': ^5.0.0
       '@types/sass': ^1.43.1
+      '@vue/compiler-sfc': ^3.2.23
       fast-glob: ^3.2.7
       gulp: ^4.0.2
       gulp-autoprefixer: ^8.0.0
@@ -25,6 +26,7 @@ importers:
       rollup-plugin-vue: ^6.0.0
       sass: ^1.44.0
       sucrase: ^3.20.3
+      ts-morph: ^13.0.2
       typescript: ^4.5.2
       vue: ^3.2.23
     dependencies:
@@ -39,6 +41,7 @@ importers:
       '@types/gulp-clean-css': 4.3.0
       '@types/gulp-sass': 5.0.0
       '@types/sass': 1.43.1
+      '@vue/compiler-sfc': 3.2.23
       fast-glob: 3.2.7
       gulp: 4.0.2
       gulp-autoprefixer: 8.0.0_gulp@4.0.2
@@ -47,9 +50,10 @@ importers:
       gulp-typescript: 6.0.0-alpha.1_typescript@4.5.2
       rollup: 2.60.2
       rollup-plugin-typescript2: 0.31.1_rollup@2.60.2+typescript@4.5.2
-      rollup-plugin-vue: 6.0.0
+      rollup-plugin-vue: 6.0.0_@vue+compiler-sfc@3.2.23
       sass: 1.44.0
       sucrase: 3.20.3
+      ts-morph: 13.0.2
       typescript: 4.5.2
       vue: 3.2.23
 
@@ -139,6 +143,15 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@ts-morph/common/0.12.2:
+    resolution: {integrity: sha512-m5KjptpIf1K0t0QL38uE+ol1n+aNn9MgRq++G3Zym1FlqfN+rThsXlp3cAgib14pIeXF7jk3UtJQOviwawFyYg==}
+    dependencies:
+      fast-glob: 3.2.7
+      minimatch: 3.0.4
+      mkdirp: 1.0.4
+      path-browserify: 1.0.1
     dev: true
 
   /@ts-type/package-dts/1.0.56:
@@ -785,6 +798,12 @@ packages:
       inherits: 2.0.4
       process-nextick-args: 2.0.1
       readable-stream: 2.3.7
+    dev: true
+
+  /code-block-writer/11.0.0:
+    resolution: {integrity: sha512-GEqWvEWWsOvER+g9keO4ohFoD3ymwyCnqY3hoTr7GZipYFwEhMHJw+TtV0rfgRhNImM6QWZGO2XYjlJVyYT62w==}
+    dependencies:
+      tslib: 2.3.1
     dev: true
 
   /code-point-at/1.1.0:
@@ -2178,6 +2197,12 @@ packages:
       is-extendable: 1.0.1
     dev: true
 
+  /mkdirp/1.0.4:
+    resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: true
+
   /ms/2.0.0:
     resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
     dev: true
@@ -2428,6 +2453,10 @@ packages:
   /pascalcase/0.1.1:
     resolution: {integrity: sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /path-browserify/1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
     dev: true
 
   /path-dirname/1.0.2:
@@ -2776,11 +2805,12 @@ packages:
       - ts-toolbelt
     dev: true
 
-  /rollup-plugin-vue/6.0.0:
+  /rollup-plugin-vue/6.0.0_@vue+compiler-sfc@3.2.23:
     resolution: {integrity: sha512-oVvUd84d5u73M2HYM3XsMDLtZRIA/tw2U0dmHlXU2UWP5JARYHzh/U9vcxaN/x/9MrepY7VH3pHFeOhrWpxs/Q==}
     peerDependencies:
       '@vue/compiler-sfc': '*'
     dependencies:
+      '@vue/compiler-sfc': 3.2.23
       debug: 4.3.3
       hash-sum: 2.0.0
       rollup-pluginutils: 2.8.2
@@ -3144,6 +3174,13 @@ packages:
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
+    dev: true
+
+  /ts-morph/13.0.2:
+    resolution: {integrity: sha512-SjeeHaRf/mFsNeR3KTJnx39JyEOzT4e+DX28gQx5zjzEOuFs2eGrqeN2PLKs/+AibSxPmzV7RD8nJVKmFJqtLA==}
+    dependencies:
+      '@ts-morph/common': 0.12.2
+      code-block-writer: 11.0.0
     dev: true
 
   /ts-type/2.1.2:

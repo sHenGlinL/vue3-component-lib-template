@@ -16,3 +16,10 @@ export const run = (command:string) => {
     app.on('close', resolve)
   })
 }
+
+// 重写自身子包的路径
+export const pathRewriter = (format) => {
+  return (id:string) => {
+    return id.replace(/@sl-plus/g, `sl-plus/${format}`)    
+  }
+}

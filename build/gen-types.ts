@@ -1,0 +1,73 @@
+import { outDir, projectRoot, SLPlusRoot } from "./utils/paths";
+import glob from 'fast-glob';
+import { Project, ModuleKind, ScriptTarget, SourceFile } from 'ts-morph'
+import path from 'path'
+import fs from 'fs/promises'
+import { parallel, series } from "gulp";
+import { run, withTaskName } from "./utils";
+import { buildConfig } from "./utils/config";
+
+// 生成.d.ts文件
+export const genEntryTypes = async () => {
+  const files = await glob("*.ts", {
+    cwd: SLPlusRoot,
+    absolute: true,
+    onlyFiles: true,
+  });
+  const project = new Project({
+    compilerOptions: {
+      declaration: true,
+      module: ModuleKind.ESNext,
+      allowJs: true,
+      emitDeclarationOnly: true,
+      noEmitOnError: false,
+      outDir: path.resolve(outDir, "entry/types"),
+      target: ScriptTarget.ESNext,
+      rootDir: SLPlusRoot,
+      strict: false,
+    },
+    skipFileDependencyResolution: true,
+    tsConfigFilePath: path.resolve(projectRoot, "tsconfig.json"),
+    skipAddingFilesFromTsConfig: true,
+  });
+  const sourceFiles: SourceFile[] = [];
+  files.map((f) => {
+    const sourceFile = project.addSourceFileAtPath(f);
+    sourceFiles.push(sourceFile);
+  });
+  await project.emit({
+    emitOnlyDtsFiles: true,
+  });
+  const tasks = sourceFiles.map(async (sourceFile) => {
+    const emitOutput = sourceFile.getEmitOutput();
+    for (const outputFile of emitOutput.getOutputFiles()) {
+      const filepath = outputFile.getFilePath();
+      await fs.mkdir(path.dirname(filepath), { recursive: true });
+      await fs.writeFile(
+        filepath,
+        outputFile.getText().replaceAll("@sl-plus", "."),
+        "utf8"
+      );
+    }
+  });
+  await Promise.all(tasks);
+};
+
+// 拷贝到dist/es,lib/下
+export const copyEntryTypes = () => {
+  const src = path.resolve(outDir, "entry/types");
+  const copy = (module) =>
+    parallel(
+      withTaskName(`copyEntryTypes:${module}`, () =>
+        run(
+          `cp -r ${src}/* ${path.resolve(
+            outDir,
+            buildConfig[module].output.path
+          )}/`
+        )
+      )
+    );
+  return parallel(copy("esm"), copy("cjs"));
+}
+
+export const genTypes = series(genEntryTypes, copyEntryTypes())

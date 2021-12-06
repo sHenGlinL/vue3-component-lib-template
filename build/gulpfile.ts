@@ -1,6 +1,13 @@
 // series: 串行  parallel: 并行
 import { series, parallel } from "gulp"
 import { run, withTaskName } from "./utils"
+import { genTypes } from "./gen-types"
+import { outDir, SLPlusRoot } from "./utils/paths"
+
+// 拷贝package.json
+const copySourceCode = async () => {
+  await run(`cp ${SLPlusRoot}/package.json ${outDir}/package.json`)
+}
 
 /** 
  * 打包流程如下：
@@ -19,6 +26,10 @@ export default series(
     withTaskName('buildPackages', () => run('pnpm run --filter ./packages --parallel build')), // 打包packages目录下的所有包（组件包，样式包，工具包），并行执行build命令
     withTaskName('buildFullComponent', () => run('pnpm run build buildFullComponent')), // 执行build命令时会调用rollup, 我们给rollup传递参数buildFullComponent 那么就会执行导出任务叫 buildFullComponent
     withTaskName('buildComponent', () => run('pnpm run build buildComponent')), // 打包每一个组件
+  ),
+  parallel(
+    genTypes,
+    copySourceCode
   )
 )
 

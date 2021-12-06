@@ -153,6 +153,13 @@ pnpm i gulp @types/gulp sucrase -w -D
     pnpm i fast-glob -w -D
     ```
     3. 打包时需要把组件index.ts文件下，引入的自身库的路径重写，不然会找不到。因为打包的时候排除了自身库的路径，防止二次打包。
+    4. 生成每个组件的.d.ts声明文件，安装所需依赖ts-morph。再安装 @vue/compiler-sfc 用于解析单文件组件
+    ```
+    pnpm i ts-morph @vue/compiler-sfc -w -D
+    ```
+    5. 完成后会发现，dist/es,lib/components 下少了index.js入口文件。需要打包入口文件。
+5. 新建build/gen-types文件，用来生成packages/{项目名称}/index.ts的.d.ts文件
+6. 拷贝packages/{项目名称}/package.json到dist文件
 
 <!-- Markdown link & img dfn's -->
 [iconfont]: https://www.iconfont.cn/
