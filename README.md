@@ -161,5 +161,7 @@ pnpm i gulp @types/gulp sucrase -w -D
 5. 新建build/gen-types文件，用来生成packages/{项目名称}/index.ts的.d.ts文件
 6. 拷贝packages/{项目名称}/package.json到dist文件
 
+## -------完成！---------
+
 <!-- Markdown link & img dfn's -->
 [iconfont]: https://www.iconfont.cn/
