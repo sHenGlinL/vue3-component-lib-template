@@ -2,9 +2,11 @@
 
 @font-face {
   font-family: "sl-ui-icons"; /* Project id 2984669 */
-  src: url('./fonts/iconfont.woff2') format('woff2'),
-       url('./fonts/iconfont.woff') format('woff'),
-       url('./fonts/iconfont.ttf') format('truetype');
+  src: 
+      // url('./fonts/iconfont.woff2') format('woff2'), // 会报错 Failed to decode downloaded font
+      url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAASkAAsAAAAACRAAAARWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACDDAqFKIReATYCJAMQCwoABCAFhQsHRxv5B8gOJU3BwACgAABEPHy/9nru27sbBJWJQ3KxYUUFcqRImKAsWwHoqzqV7Oqq/vC/zR72ulkVsmi360IWiQrIDrAXdXrXeFX51WFe1Nf9Rv16/b2m2cw8TLMP8gA8tTcKxooGg+UOW6mCDRBvGLu4jLsIdFrWRLQ5dTYGwh8SVh4kk9AGgzA/HjI0ARSsRpYwQru8qbtnTkAbQU15KnoBgNfu38dfUB4KirqiHefgwRQduPMj5nuc2B64oPoG7AEBrl1Qo8L8zHRxo9xyROxH5ol15lkkJlFpCn6MBAI2eYgzb4m6/3iFaGiSbojWxdUucU1OKB2G3D3kwriCuyFrb+3/CgSrGOvnWVM9HB0ZLYuRJcWlJIUNRgouSHx5IIE+4ywkt+0D5eJNlyOe2i7E6rZGvmpbSJRzB0SFCtsh6HJHSNjzbcDF1mFsazAuxOPbE5p3hKidceptOI6p1c0tLVuDNcL2+LZMUvuWxLG41m1tmpZWop0QcJ/PIBzNfj/hVHu9hB3zeExDAmar7OqEytmcr3LgVa7VGezwVcdC8ZAz7sTtFIcrGHr+8m6a/WLBLS8mLOkTPB4QfOmfddoH2U/i93o9tU+9bY7Lz4QnF+2XnjqfX6n/pp+fHZXtj/718QRlabJYzo+/ov0pZ3SxHAuN5aHlaGtM7pfvlM2Xr5YX70+UrZbBvkjmKuWw+TRg69+Vtp1sxCUo4iG+m2Vbd4xEXIQiTvBd7DL7ZrB/Nm3JZsje6vXTZ/i6yPVixYfq+21joxFYvwU4fdM++q+JE9+qv9LIwi3rQGCJviu/PW/durz2/K43BtNhBszo6K78NzlLy5bdGaJVuoYGnYr+azAdZjCcVv1NPdX+TrR8/PT/B0VGNPiudywiOzMbzbmvEsOPHSfQRWMDqBKZNx/pwkx8VCU6aQZ36l/OlPy6ac18vLayRA+zX0+lr2MIznCVqEpcja5SVakLGAG0dqS4unCTNiYt7g9opouE4nsHgv9TWud0R6j+KUKumf97p68Jc+oBbaP9LlqCv8N1J+0BrV/S8spkIgcByAuiaQVwbnpCyp1mQhZr1wKaY9CXPiRDWMK2dRkKcdFmHFe6TECiZajRBjRoG3eas4Dd2/ojxCI7MGkDxGHUNVz0+oIro95Doh+kmhJSaFAK7nQtyo7WZTJWTTKThJXUwZpBmNEaeMpIt1rYUhtTKi9qWUjSNpYwp5qD7+Kk2cIYeLgMQXPi00ieNHe3jaWPLrdaKZgyGzh4ar/nI1nWABvNhl5Sa0X0VquxXqmk8l4F0Ro4MIkZiWBF0oFpDIIxtAx4lF1qZcEqZYOK0vxUi4VItDQJi2Au7wJacGRtCROfDqwMAq0H0yR83bYzLLXoQytn1U0U2Kw1M+DAps4ZyEyWAcyYv1ovkpYVQt8iZFRPqfei6kqQkWXcBR+DTtoLZZSoIqPW3CV4erFNRtlYhjCEEByjIWgbwbMMAAAA') format('woff2'),
+      url('./fonts/iconfont.woff') format('woff'),
+      url('./fonts/iconfont.ttf') format('truetype');
 }
 
 // 以 {namespace}-icon 开头的选择器
