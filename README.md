@@ -1,13 +1,16 @@
 # vue3 + typescript + pnpm + monorepo + gulp + rollup 搭建vue3组件库框架
 
-## 1.初始化pnpm，并安装依赖
+## 1.初始化pnpm, 新建.npmrc文件
+- 不加 shamefully-hoist = true 依赖引用可能会有问题
 ```
 pnpm init -y
-pnpm install vue@next typescript -D
 ```
-## 2.新建.npmrc文件
 ```
 shamefully-hoist = true
+```
+## 2.安装依赖
+```
+pnpm install vue@next typescript -D
 ```
 ## 3.初始化tsconfig
 ```
